@@ -1,0 +1,16 @@
+encoder:
+  model_path: "sentence-transformers/multi-qa-mpnet-base-dot-v1"
+
+  model_kwargs: 
+    device: "cpu"
+
+  encode_kwargs:
+    normalize_embeddings: False
+  
+transcriptor:
+  whisper:
+    model: "large"
+  whisperx:
+    model: "small"
+    compute_type: "int8"
+  device: "cpu"

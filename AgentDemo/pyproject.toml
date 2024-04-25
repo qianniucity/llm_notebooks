@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "agentdemo"
+version = "0.1.0"
+description = ""
+authors = ["elokow <lukas.kowejsza@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "0.1.0"
+SQLAlchemy = ">2"
+sqlmodel = "0.0.16"
+pytest = "^8"
+langchain = "0.1.8"
+langchain_openai = "0.0.6"
+langchain_experimental = "0.0.53"
+jupyter = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

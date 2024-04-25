@@ -1,0 +1,12 @@
+pgvector==0.2.4
+langchain==0.0.338
+psycopg2-binary==2.9.9
+transformers==4.30.0
+python-dotenv==1.0.0
+jupyterlab==4.0.8
+sentencepiece==0.1.99
+protobuf==3.20.0
+pandas==2.0.0
+sentence-transformers==2.2.2
+streamlit==1.29.0
+llama-cpp-python==0.2.18

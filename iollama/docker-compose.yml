@@ -1,0 +1,8 @@
+version: '3'
+services:
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - /private/var/services/ollama:/root/.ollama
+    ports:
+      - 11434:11434

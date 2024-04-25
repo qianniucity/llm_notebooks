@@ -1,0 +1,19 @@
+encoder:
+  model_path: "sentence-transformers/all-MiniLM-l6-v2"
+
+  model_kwargs: 
+    device: "cpu"
+
+  encode_kwargs:
+    normalize_embeddings: False
+
+retriever:
+  passage:
+    chunk_size: 1000
+    chunk_overlap: 0
+
+generator:
+  llm_path: "../model/nous-hermes-llama-2-7b.Q4_0.gguf"
+  context_length: 1024
+  temperature: 0.7
+  max_tokens: 5000

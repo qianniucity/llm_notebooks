@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: container-pg-2
+    image: ankane/pgvector
+    hostname: localhost
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./env/postgres.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: container-pgadmin
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    ports:
+      - "5050:80"
+    env_file:
+      - ./env/pgadmin.env
+    restart: unless-stopped
+
+volumes:
+  postgres-data:

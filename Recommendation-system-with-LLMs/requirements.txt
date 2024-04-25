@@ -1,0 +1,6 @@
+lancedb
+langchain
+openai
+os
+pandas
+tiktoken
