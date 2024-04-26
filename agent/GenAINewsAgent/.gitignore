@@ -1,0 +1,3 @@
+.env
+server/__pycache__
+server/*/__pycache__

@@ -1,0 +1,7 @@
+groq==0.4.2
+httpx==0.25.0
+fastapi==0.110.0
+uvicorn==0.29.0
+python-dotenv==1.0.1
+transformers==4.39.3
+brave-search==0.1.8
