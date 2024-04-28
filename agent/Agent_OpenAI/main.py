@@ -1,10 +1,12 @@
 from datetime import datetime
+import os
 
 from openai import OpenAI
 from pydantic.v1 import BaseModel
 
 from scripts.agent import OpenAIAgent
 from scripts.tool import Tool
+
 
 
 # === TOOL DEFINITIONS ===
@@ -63,7 +65,7 @@ tools = [
 
 # === RUN AGENT ===
 
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("API_KEY"))
 model_name = "gpt-3.5-turbo-0125"
 agent = OpenAIAgent(tools, client, model_name=model_name, verbose=True)
 
