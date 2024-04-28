@@ -16,3 +16,6 @@
 ### 1、如何使用Llama3和Hugging Face优化关系提取任务
 - 描述：关系提取(RE)是一项任务，旨在从非结构化文本中识别出各种命名实体之间的联系。它与命名实体识别(NER)配合使用，是自然语言处理流程中不可或缺的一步。随着大型语言模型(LLM)的崛起，那些需要标注实体范围并对它们之间的关系进行分类的传统监督方法得到了增强，甚至被基于LLM的方法所取代。
 - 代码地址：[如何使用Llama3和Hugging Face优化关系提取任务](./llama3_re/)
+- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/knowlage_graph/llama3_re/Llama3_RE_Inference_SFT.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
