@@ -54,3 +54,11 @@ RAG，即 检索增强生成（Retrieval Augmented Generation），是一种通�
 - **路由:**  自适应 RAG ([paper](https://arxiv.org/abs/2403.14403)). 将问题路由到不同的检索方法
 - **回退:** 纠正 RAG ([paper](https://arxiv.org/pdf/2401.15884.pdf)). 如果文档与查询不相关，则回退到网络搜索
 - **自我纠正:** Self-RAG ([paper](https://arxiv.org/abs/2310.11511)). 修正有幻觉或不符合问题的答案
+
+
+### 3、Groq LPU 与 DataStax Enterprise：构建下一代AI驱动网络应用
+- 描述：本文将深入探讨 Groq 的创新语言处理单元（LPU）与 DataStax Enterprise（DSE）、Cassio 和 Langchain 的强大数据管理功能之间的完美结合。 
+- 代码地址：[Groq LPU 与 DataStax Enterprise：构建下一代AI驱动网络应用](./langchain_rag_groq.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/rag/langchain_rag_groq.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
