@@ -19,48 +19,51 @@ from langchain.schema import Document
 from langchain_community.document_loaders import PyPDFLoader
 import streamlit as st
 import os
+import pprint
 local_llm = "llama3"
 tavily_api_key = os.environ['TAVILY_API_KEY'] = ''
-st.title("Multi-PDF ChatBot using LLAMA3 & Adaptive RAG")
-user_input = st.text_input("Question:", placeholder="Ask about your PDF", key='input')
+st.title("多 PDF 文件聊天机器人 - LLAMA3 & Adaptive RAG")
+user_input = st.text_input("对 PDF 文件提问:", placeholder="请在输入框中输入您的提问", key='input',value="llm agent memory")
 
 with st.sidebar:
-    uploaded_files = st.file_uploader("Upload your file", type=['pdf'], accept_multiple_files=True)
-    process = st.button("Process")
+    uploaded_files = st.file_uploader("上传 PDF 文件（可多个）", type=['pdf'], accept_multiple_files=True)
+    process = st.button("导入并处理文件")
 
 if process:
     if not uploaded_files:
-        st.warning("Please upload at least one PDF file.")
+        st.warning("请上传至少一份 PDF 文件。")
         st.stop()
 
     # Ensure the temp directory exists
-    temp_dir = '/Users/home/temp/'
+    # 当前路径
+    temp_dir = os.getcwd()
     if not os.path.exists(temp_dir):
         os.makedirs(temp_dir)
-
-    # Process each uploaded file
+        
+    st.write("处理上传的文件.....")
+    # 处理每一个上传的文件
     for uploaded_file in uploaded_files:
         temp_file_path = os.path.join(temp_dir, uploaded_file.name)
         
-        # Save the file to disk
+        # 将文件保存到磁盘
         with open(temp_file_path, "wb") as file:
             file.write(uploaded_file.getbuffer())  # Use getbuffer() for Streamlit's UploadedFile
         
-        # Load the PDF using PyPDFLoader
+        # 使用 PyPDFLoader 加载 PDF
         try:
             loader = PyPDFLoader(temp_file_path)
             data = loader.load()  # Assuming loader.load() is the correct method call
-            st.write(f"Data loaded for {uploaded_file.name}")
+            st.write(f"加载成功，文件名 {uploaded_file.name}")
         except Exception as e:
-            st.error(f"Failed to load {uploaded_file.name}: {str(e)}")
+            st.error(f"无法加载 {uploaded_file.name}: {str(e)}")
 
-
+    st.write("对数据集进行分块.....")
     text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
         chunk_size=250, chunk_overlap=0
     )
     text_chunks = text_splitter.split_documents(data)
 
-    # Add to vectorDB
+    # 添加到向量数据库 vectorDB
     vectorstore = Chroma.from_documents(
         documents=text_chunks,
         collection_name="rag-chroma",
@@ -81,12 +84,13 @@ if process:
 
     question_router = prompt | llm | JsonOutputParser()
     question = "llm agent memory"
-    docs = retriever.get_relevant_documents(question)
+    docs = retriever.invoke(question)
     doc_txt = docs[1].page_content
     question_router.invoke({"question": question})
 
     llm = ChatOllama(model=local_llm, format="json", temperature=0)
-
+    
+    st.write("对数据集进行聊天机器人评分.....")
     prompt = PromptTemplate(
         template="""You are a grader assessing relevance of a retrieved document to a user question. \n 
         Here is the retrieved document: \n\n {document} \n\n
@@ -100,10 +104,11 @@ if process:
 
     retrieval_grader = prompt | llm | JsonOutputParser()
     question = "agent memory"
-    docs = retriever.get_relevant_documents(question)
+    docs = retriever.invoke(question)
     doc_txt = docs[1].page_content
     st.write(retrieval_grader.invoke({"question": question, "document": doc_txt}))
 
+    # 使用 LangChain hub 来获取提示.....
     prompt = hub.pull("rlm/rag-prompt")
 
     # LLM
@@ -119,10 +124,12 @@ if process:
     # Run
     question = "agent memory"
     generation = rag_chain.invoke({"context": docs, "question": question})
+    st.write('输出结果：')
     st.write(generation)
 
     llm = ChatOllama(model=local_llm, format="json", temperature=0)
 
+    # 对提问和答案匹配度进行评分
     # Prompt
     prompt = PromptTemplate(
         template="""You are a grader assessing whether an answer is grounded in / supported by a set of facts. \n 
@@ -141,6 +148,7 @@ if process:
 
     llm = ChatOllama(model=local_llm, format="json", temperature=0)
 
+    # 评估给定答案在解决特定问题方面的实用性
     # Prompt
     prompt = PromptTemplate(
         template="""You are a grader assessing whether an answer is useful to resolve a question. \n 
@@ -159,6 +167,7 @@ if process:
 
     llm = ChatOllama(model=local_llm, temperature=0)
 
+    # 重写问题以提高其在向量存储中的检索适用性
     # Prompt 
     re_write_prompt = PromptTemplate(
         template="""You a question re-writer that converts an input question to a better version that is optimized \n 
@@ -170,10 +179,11 @@ if process:
     question_rewriter = re_write_prompt | llm | StrOutputParser()
     question_rewriter.invoke({"question": question})
 
-    
+    # 网络搜索工具 tavily 来帮助提取相关主题内容
     web_search_tool = TavilySearchResults(k=3,tavily_api_key=tavily_api_key)
         
 
+    # 状态结构  包括用户的问题、问题的生成和一个文档
     class GraphState(TypedDict):
         """
         Represents the state of our graph.
@@ -187,6 +197,7 @@ if process:
         generation : str
         documents : List[str]
 
+    # 基于提供的问题获取相关文档
     def retrieve(state):
         """
         Retrieve documents
@@ -201,9 +212,10 @@ if process:
         question = state["question"]
 
         # Retrieval
-        documents = retriever.get_relevant_documents(question)
+        documents = retriever.invoke(question)
         return {"documents": documents, "question": question}
 
+    # 生成答案
     def generate(state):
         """
         Generate answer
@@ -222,6 +234,7 @@ if process:
         generation = rag_chain.invoke({"context": documents, "question": question})
         return {"documents": documents, "question": question, "generation": generation}
 
+    # 检查文档的相关性
     def grade_documents(state):
         """
         Determines whether the retrieved documents are relevant to the question.
@@ -250,6 +263,7 @@ if process:
                 continue
         return {"documents": filtered_docs, "question": question}
 
+    # 改进原始问题以便更好地检索
     def transform_query(state):
         """
         Transform the query to produce a better question.
@@ -269,6 +283,7 @@ if process:
         better_question = question_rewriter.invoke({"question": question})
         return {"documents": documents, "question": better_question}
 
+    # 基于重述问题的网络搜索函数。它使用网络搜索工具检索网络结果，并将它们格式化为单个文档
     def web_search(state):
         """
         Web search based on the re-phrased question.
@@ -292,6 +307,7 @@ if process:
 
     ### Edges ###
 
+    # 根据问题的来源决定是将问题引导到网络搜索还是 RAG
     def route_question(state):
         """
         Route question to web search or RAG.
@@ -316,6 +332,7 @@ if process:
             st.write("---ROUTE QUESTION TO RAG---")
             return "vectorstore"
 
+    # 基于过滤文档的相关性决定是生成答案还是重新生成问题
     def decide_to_generate(state):
         """
         Determines whether to generate an answer, or re-generate a question.
@@ -341,6 +358,7 @@ if process:
             st.write("---DECISION: GENERATE---")
             return "generate"
 
+    # 这个函数通过检查生成是否基于提供的文档并回答了原始问题来评估生成答案的质量
     def grade_generation_v_documents_and_question(state):
         """
         Determines whether the generation is grounded in the document and answers question.
@@ -415,7 +433,7 @@ if process:
         },
     )
 
-    # Compile
+    # Compile workflow
     app = workflow.compile()
 
     inputs = {"question": user_input}
@@ -424,8 +442,10 @@ if process:
             # Node
             st.write(f"Node '{key}':")
             # Optional: print full state at each node
-            # pprint.pprint(value["keys"], indent=2, width=80, depth=None)
+            st.write(value)
+            # pprint.pprint(value["state"], indent=2, width=80, depth=None)
         print("\n---\n")
 
     # Final generation
+    st.write("---FINAL ANSWER---")
     st.write(value["generation"])
