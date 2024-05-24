@@ -62,3 +62,12 @@ RAG，即 检索增强生成（Retrieval Augmented Generation），是一种通�
 - <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/rag/langchain_rag_groq.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
+
+### 4、使用 Ollama 和 Weaviate 构建用于隐私保护的本地 RAG 系统
+- 描述：如何在没有外部依赖的本地环境中，仅使用以下本地组件，用Python实现一个基于RAG的聊天机器人
+- 使用Ollama的本地LLM和嵌入模型  
+- 通过Docker使用Weaviate的本地向量数据库实例 
+- 代码地址：[使用 Ollama 和 Weaviate 构建用于隐私保护的本地 RAG 系统](./Ollama_Weaviate_Local_rag.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/rag/Ollama_Weaviate_Local_rag.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
