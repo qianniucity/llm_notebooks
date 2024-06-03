@@ -26,7 +26,7 @@
 1. 将此存储库克隆到您的本地计算机。
 
    ```bash
-   git clone https://github.com/mcks2000/llm_notebooks.git
+   git clone https://github.com/qianniucity/llm_notebooks.git
    cd voice_assistant_llm
    ```
 

@@ -45,7 +45,7 @@ RAG，即 检索增强生成（Retrieval Augmented Generation），是一种通�
 ### 2、使用 LLaMA3 的本地 RAG 代理
 - 描述：对所提供的电子邮件进行全面分析，并将其归类为回复。
 - 代码地址：[使用 LLaMA3 的本地 RAG 代理](./langgraph_rag_agent_llama3_local.ipynb)
-- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/rag/langgraph_rag_agent_llama3_local.ipynb">
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/rag/langgraph_rag_agent_llama3_local.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -59,7 +59,7 @@ RAG，即 检索增强生成（Retrieval Augmented Generation），是一种通�
 ### 3、Groq LPU 与 DataStax Enterprise：构建下一代AI驱动网络应用
 - 描述：本文将深入探讨 Groq 的创新语言处理单元（LPU）与 DataStax Enterprise（DSE）、Cassio 和 Langchain 的强大数据管理功能之间的完美结合。 
 - 代码地址：[Groq LPU 与 DataStax Enterprise：构建下一代AI驱动网络应用](./langchain_rag_groq.ipynb)
-- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/rag/langchain_rag_groq.ipynb">
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/rag/langchain_rag_groq.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -68,6 +68,6 @@ RAG，即 检索增强生成（Retrieval Augmented Generation），是一种通�
 - 使用Ollama的本地LLM和嵌入模型  
 - 通过Docker使用Weaviate的本地向量数据库实例 
 - 代码地址：[使用 Ollama 和 Weaviate 构建用于隐私保护的本地 RAG 系统](./Ollama_Weaviate_Local_rag.ipynb)
-- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/rag/Ollama_Weaviate_Local_rag.ipynb">
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/rag/Ollama_Weaviate_Local_rag.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>

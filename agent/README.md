@@ -36,7 +36,7 @@ AI Agent 是人工智能研究的一个重要领域，具有广泛的潜在应�
 ### 1、专业的经济学家 代理
 - 描述：llama-3-70b-Instruct 代理一位专业的经济学家，并输出为 Markdown 格式的指令。
 - 代码地址：[专业的经济学家](./grop_llama3_agent.ipynb)
-- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/agent/grop_llama3_agent.ipynb">
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/agent/grop_llama3_agent.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -50,7 +50,7 @@ AI Agent 是人工智能研究的一个重要领域，具有广泛的潜在应�
 ### 2、邮件回复 代理
 - 描述：对所提供的电子邮件进行全面分析，并将其归类为回复。
 - 代码地址：[邮件回复代理](./Email_Reply_Llama3_CrewAI_+_Groq.ipynb)
-- <a target="_blank" href="https://colab.research.google.com/github/mcks2000/llm_notebooks/blob/main/agent/Email_Reply_Llama3_CrewAI_+_Groq.ipynb">
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/agent/Email_Reply_Llama3_CrewAI_+_Groq.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
