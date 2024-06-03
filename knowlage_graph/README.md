@@ -21,17 +21,20 @@
 </a>
 
 ### 2、使用知识图谱实施 DevOps RAG 应用程序
-  <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/langchain_neo4j_devops_rag.ipynb">
+- [代码仓库](./Tlangchain_neo4j_devops_rag.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/langchain_neo4j_devops_rag.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ### 3、LangChain Cypher 搜索： 技巧与窍门
-  <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/langchain_neo4j_tips.ipynb">
+- [代码仓库](./langchain_neo4j_tips.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/langchain_neo4j_tips.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ### 4、Llama Pack - Neo4j 查询引擎
-  <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llama_packs_neo4j.ipynb">
+- [代码仓库](./llama_packs_neo4j.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llama_packs_neo4j.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
@@ -54,38 +57,44 @@
 - NebulaGraph 主要的几种查询方式
 - NebulaGraph 实战用例及分析
 
-  <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_nebulagraph_rag_phillies.ipynb">
+- [代码仓库](./llamaindex_nebulagraph_rag_phillies.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_nebulagraph_rag_phillies.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ### 6、使用 LlamaIndex 和 Neo4j 构建图形化知识图谱
-<a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_neo4j_KnowledgeGraph.ipynb">
+- [代码仓库](./llamaindex_neo4j_KnowledgeGraph.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_neo4j_KnowledgeGraph.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 
 ### 7、使用 LlamaIndex 和 Neo4j 的多模态 RAG 管道  
 检索并结合文本和图像的信息以通过多模态大语言模型生成准确的回答  
-<a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_neo4j_multimodal.ipynb">
+- [代码仓库](./llamaindex_neo4j_multimodal.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_neo4j_multimodal.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 
 ### 8、Neo4j Graph Store 
-<a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_Neo4j.ipynb">
+- [代码仓库](./llamaindex_Neo4j.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_Neo4j.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ### 8、Neo4j vector store
-<a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_Neo4jVectorDemo.ipynb">
+- [代码仓库](./llamaindex_Neo4jVectorDemo.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/llamaindex_Neo4jVectorDemo.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ### 9、使用量化的LLM进行主题建模
-<a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/Topic_Modeling_with_Quantized_LLMs.ipynb">
+- [代码仓库](./Topic_Modeling_with_Quantized_LLMs.ipynb)
+- <a target="_blank" href="https://colab.research.google.com/github/qianniucity/llm_notebooks/blob/main/knowlage_graph/Topic_Modeling_with_Quantized_LLMs.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
 ### 10、通过 LangChain 和 Neo4j 引入 GraphRAG
 - 实现和评估 GraphRAG 应用程序
-- [Github 仓库](./GraphRAG)
+- [代码仓库](./GraphRAG)
